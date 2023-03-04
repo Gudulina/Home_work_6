@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Program {
-
+    
     public static void main(String[] args) {
 
         var mg = new MapGenerator();
@@ -20,13 +20,16 @@ public class Program {
                 new MapPrinter().rawData(
                         mg.getMap()));
 
-        // var r = new getRoad(mg.getMap());        
-        // r.hashCode();
-        // System.out.println(r);
+
 
         getRoad getRoad = new getRoad(mg.getMap());
         //getRoad.shortWay(new Point2D(12, 11));
         System.out.println(getRoad.shortWay(new Point2D(12, 11)));
+       
+
+        System.out.println("Кратчайший путь составляет " + getRoad.count + " шагов");
+        //System.out.println("Путь: " + way);
+
     }
 }
 
@@ -186,42 +189,56 @@ class getRoad {
     public getRoad(int[][] map) {
         this.map = map;
     }
-    int count;
+    public int count = 0;    
 
     public LinkedList<Point2D> shortWay(Point2D stopPoint) {
         LinkedList<Point2D> road = new LinkedList<Point2D>();
         road.add(stopPoint);
-        int count = 0;
-        Point2D p = new Point2D(12, 11);
-       // while (map[stopPoint.x][stopPoint.y] != 1) {
+       // int count = 0;        
+       // Point2D stop = new Point2D(12, 11);
 
+       LinkedList <Integer> way = new LinkedList<>();  
+            
+
+        while (map[stopPoint.x][stopPoint.y] != 1) {
+            Point2D p = road.remove();
+            
             if (map[p.x - 1][p.y] == map[p.x][p.y] - 1) {
                 road.add(new Point2D(p.x - 1, p.y));    
                 count++;
-                System.out.println(map[p.x - 1][p.y]);      
+                way.add(map[p.x - 1][p.y]);
+                System.out.println(map[p.x - 1][p.y]);  
+                System.out.println("Шагов: " + count);     
             } 
 
             if (map[p.x][p.y - 1] == map[p.x][p.y] - 1) {
                 road.add(new Point2D(p.x, p.y - 1));
                 count++;
+                way.add(map[p.x][p.y - 1]);
                 System.out.println(map[p.x][p.y - 1]);
+                System.out.println("Шагов: " + count);
             }
 
             if (map[p.x + 1][p.y] == map[p.x][p.y] - 1) {
                 road.add(new Point2D(p.x + 1, p.y));
                 count++;
+                way.add(map[p.x + 1][p.y]);
                 System.out.println(map[p.x + 1][p.y]);
+                System.out.println("Шагов: " + count);
             }
 
             if (map[p.x][p.y + 1] == map[p.x][p.y] - 1) {
                 road.add(new Point2D(p.x, p.y + 1));
                 count++;
+                way.add(map[p.x][p.y + 1]);
                 System.out.println(map[p.x][p.y + 1]);
-            }
-
+                System.out.println("Шагов: " + count);
+            }     
+        //}
         System.out.println("Кратчайший путь составляет " + count + " шагов");
-
-      //  }
-        return road;
+        System.out.println("Путь: " + way);
+        System.out.println();
+   }        
+    return road;
     }
-}
+    }
