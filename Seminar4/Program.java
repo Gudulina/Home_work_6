@@ -22,6 +22,6 @@ public class Program {
                         mg.getMap()));
 
         getRoad getRoad = new getRoad(mg.getMap());
-        System.out.println(getRoad.shortWay(new Point2D(12, 11)));
+        getRoad.method(new Point2D(12, 11));
     }
 }

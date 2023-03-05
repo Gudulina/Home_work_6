@@ -5,10 +5,18 @@ public class WaveAlgorithm {
     
         int[][] map;
     
+        /**
+         * Поиск выхода волной
+         * @param map карта
+         */
         public WaveAlgorithm(int[][] map) {
             this.map = map;
         }
     
+        /**
+         * "Закрашивание" пройденного пути
+         * @param startPoint точка старта
+         */
         public void Colorize(Point2D startPoint) {
             Queue<Point2D> queue = new LinkedList<Point2D>();
             queue.add(startPoint);

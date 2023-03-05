@@ -2,6 +2,9 @@ public class MapGenerator {
     
         int[][] map;
     
+        /**
+         * Генерация карты
+         */
         public MapGenerator() {
             int[][] map = {
                     { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },

@@ -1,8 +1,16 @@
 public class MapPrinter {    
 
+        /**
+         * Печать карты в консоль
+         */
         public MapPrinter() {
         }
     
+        /**
+         * Печать "сырой" карты
+         * @param map карта
+         * @return возвращается карта с цифрами
+         */
         public String rawData(int[][] map) {
             StringBuilder sb = new StringBuilder();
     
@@ -19,6 +27,11 @@ public class MapPrinter {
             return sb.toString();
         }
     
+        /**
+         * Печать "красивой" карты
+         * @param map карта
+         * @return возвращается "раскрашенная" карта
+         */
         public String mapColor(int[][] map) {
             StringBuilder sb = new StringBuilder();
     
