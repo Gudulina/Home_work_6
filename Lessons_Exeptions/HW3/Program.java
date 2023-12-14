@@ -6,7 +6,7 @@ public class Program {
         String file = null;
         WriteToFile writeFile = new WriteToFile();
         HashMap<String, Object> data = parsing.parsingUserInput();
-        while (data.size() != 6) { // Ввод данных запускается, пока пользователь не введет нужное количество данных
+        while (data.size() != 6) { // Ввод данных, пока пользователь не введет нужное количество данных
             try {
                 throw new DataException();
             } catch (DataException e) {
